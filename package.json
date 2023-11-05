@@ -1,0 +1,15 @@
+{
+  "name": "space-x-practice",
+  "private": true,
+  "version": "1.0.0",
+  "workspaces": [
+    "api",
+    "frontend"
+  ],
+  "scripts": {
+  },
+  "engines": {
+    "node": ">= 20.9.0",
+    "npm": "please-use-yarn"
+  }
+}
