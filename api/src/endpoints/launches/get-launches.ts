@@ -1,6 +1,6 @@
 import {Request, Response} from "express";
 
-export async function getLaunches(req:Request, res:Response) {
+export function getLaunches(req:Request, res:Response) {
   console.debug(req);
-  res.status(201).send("not implemented yet");
+  res.status(501).send("not implemented yet");
 }
