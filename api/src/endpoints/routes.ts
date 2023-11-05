@@ -6,7 +6,7 @@ const port = 3000;
 
 app.get("launch/", getLaunches);
 
-app.use((req:Request, res:Response)=>{
+app.use((_:Request, res:Response)=>{
   res.status(404).send("Not found");
 })
 

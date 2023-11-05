@@ -1,0 +1,7 @@
+{
+  "compilerOptions": {
+    "isolatedModules": false
+  },
+  "exclude": ["node_modules"],
+  "extends": "./tsconfig.json"
+}
