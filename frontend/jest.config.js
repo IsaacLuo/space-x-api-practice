@@ -8,8 +8,7 @@ module.exports = {
     "!<rootDir>/out/**",
     "!<rootDir>/.next/**",
     "!<rootDir>/*.config.js",
-    "!<rootDir>/coverage/**",
-    "!<rootDir>/src/pages/index.tsx"
+    "!<rootDir>/coverage/**"
   ],
   coverageProvider: "v8",
   coverageThreshold: {

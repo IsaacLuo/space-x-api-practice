@@ -7,9 +7,9 @@ jest.mock('next/font/google', ()=>({
 }))
 
 const DummyComponent = (props:any)=><div className={props.className}>LaunchList dummy</div>;
-jest.mock("../../components/launch-list", ()=>DummyComponent);
+jest.mock("../components/launch-list", ()=>DummyComponent);
 
-import Home from "../index";
+import Home from "../pages/index";
 
 test("loads submodules", async () => {  
   render(<Home/>);
