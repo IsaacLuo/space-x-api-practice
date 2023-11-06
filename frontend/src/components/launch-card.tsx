@@ -1,7 +1,15 @@
 import Image from "next/image";
 
-const BadgeRed = <div className="rounded-full px-2 text-xs bg-red-500 flex-none ml-auto mr-3 text-white">Failed</div>
-const BadgeGreen = <div className="rounded-full px-2 text-xs bg-green-500 flex-none ml-auto mr-3 text-white">Success</div>
+const BadgeRed = (
+  <div className="rounded-full px-2 text-xs bg-red-500 flex-none ml-auto mr-3 text-white">
+    Failed
+  </div>
+);
+const BadgeGreen = (
+  <div className="rounded-full px-2 text-xs bg-green-500 flex-none ml-auto mr-3 text-white">
+    Success
+  </div>
+);
 
 export default function LaunchCard(props: {
   launchData: {
@@ -12,13 +20,14 @@ export default function LaunchCard(props: {
     details: string;
     date: string;
     success: boolean;
-  },
+  };
   launchPictureSrc: string;
 }) {
-  const { launchName, rocketName, launchpadName, details, date, success} = props.launchData;
-  const {launchPictureSrc} = props;
+  const { launchName, rocketName, launchpadName, details, date, success } =
+    props.launchData;
+  const { launchPictureSrc } = props;
 
-  const badge = success?BadgeGreen:BadgeRed;
+  const badge = success ? BadgeGreen : BadgeRed;
   return (
     <article className="launch-card shadow rounded flex flex-row gap-x-5 rounded-xl">
       <div className="flex-initial w-64 h-64">
@@ -35,7 +44,9 @@ export default function LaunchCard(props: {
           <h2 className="launch-name text-3xl">{launchName}</h2>
           {badge}
         </div>
-        <p className="launch-date text-gray-500 text-sm">{new Date(date).toLocaleString()}</p>
+        <p className="launch-date text-gray-500 text-sm">
+          {new Date(date).toLocaleString()}
+        </p>
         <p className="launch-description text-xs pr-8 py-3">{details}</p>
         <h3 className="text-xl pt-3">Details</h3>
         <div className="text-xs">Rocket Name: {rocketName}</div>

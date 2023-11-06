@@ -13,9 +13,11 @@ test("loads and display launch card success", async () => {
     date: "2006-03-24T22:30:00.000Z",
     success: true,
   };
-  render(<LaunchCard launchData={launchData} launchPictureSrc="/537-521x521.jpg" />);
+  render(
+    <LaunchCard launchData={launchData} launchPictureSrc="/537-521x521.jpg" />
+  );
   await screen.findByText("FalconSat");
-  await screen.findByAltText("launch picture of FalconSat")
+  await screen.findByAltText("launch picture of FalconSat");
   await screen.findByText("Success");
 });
 
@@ -29,8 +31,10 @@ test("loads and display launch card failed", async () => {
     date: "2006-03-24T22:30:00.000Z",
     success: false,
   };
-  render(<LaunchCard launchData={launchData} launchPictureSrc="/537-521x521.jpg" />);
+  render(
+    <LaunchCard launchData={launchData} launchPictureSrc="/537-521x521.jpg" />
+  );
   await screen.findByText("FalconSat");
-  await screen.findByAltText("launch picture of FalconSat")
+  await screen.findByAltText("launch picture of FalconSat");
   await screen.findByText("Failed");
 });
