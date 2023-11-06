@@ -6,7 +6,7 @@ import { getLaunches } from "./launches";
  * @param app express instance
  */
 export function routes(app: Express) {
-  app.get("/v1/launches/", getLaunches);
+  app.get("/api/v1/launches", getLaunches);
 
   // always response the root path
   app.get("/", (_: Request, res: Response) => {
