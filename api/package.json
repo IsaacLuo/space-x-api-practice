@@ -10,9 +10,12 @@
     "npm": "please-use-yarn"
   },
   "scripts": {
+    "build": "tsc",
+    "prestart": "yarn build",
+    "start": "node dist/bin/start",
     "debug": "ts-node bin/start",
     "test": "jest --coverage",
-    "integrated-test": "yarn test --config jest.integrated.config.js"
+    "integrated-test": "jest --config jest.integrated.config.js -i"
   },
   "dependencies": {
     "axios": "^1.6.0",

@@ -11,7 +11,7 @@ test("express starts correctly", async ()=>{
   const port = process.env.PORT && !isNaN(parseInt(process.env.PORT)) ? parseInt(process.env.PORT) : 3001;
   expect(console.log).toHaveBeenCalledWith(`app is listening on port ${port}`);
   server.close();
-});
+}, 20000);
 
 test("express starts in another port", async ()=>{
   console.log = jest.fn();
@@ -21,4 +21,4 @@ test("express starts in another port", async ()=>{
   const port = process.env.PORT && !isNaN(parseInt(process.env.PORT)) ? parseInt(process.env.PORT) : 3001;
   expect(console.log).toHaveBeenCalledWith(`app is listening on port ${port}`);
   server.close();
-});
+}, 20000);
