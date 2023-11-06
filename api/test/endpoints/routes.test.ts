@@ -27,7 +27,7 @@ test("we have enough endpoints", () => {
   routes(app as any);
 
   expect(app.get).toHaveBeenCalledWith(
-    "/v1/launches/",
+    "/api/v1/launches",
     getLaunchesModule.getLaunches
   );
   expect(app.get).toHaveBeenCalledWith("/", expect.anything());

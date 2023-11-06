@@ -1,6 +1,5 @@
-import Image from 'next/image'
 import { Inter } from 'next/font/google'
-import LaunchList from './components/launch-list'
+import LaunchList from '../components/launch-list'
 
 const inter = Inter({ subsets: ['latin'] })
 
