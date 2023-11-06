@@ -22,4 +22,3 @@ export type Launch = {
 export type ApiResult = {
   results: Launch[];
 };
-

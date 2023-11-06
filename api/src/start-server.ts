@@ -1,15 +1,18 @@
 import express from "express";
 import { routes } from "./endpoints/routes";
-import {Server} from "http";
+import { Server } from "http";
 
 /**
- * Starts Express.js server 
+ * Starts Express.js server
  * @returns http server instance
  */
-export async function startServer():Promise<Server> {
-  return new Promise((resolve:(server:Server)=>void)=>{
+export async function startServer(): Promise<Server> {
+  return new Promise((resolve: (server: Server) => void) => {
     const app = express();
-    const port = process.env.PORT && !isNaN(parseInt(process.env.PORT)) ? parseInt(process.env.PORT) : 3001;
+    const port =
+      process.env.PORT && !isNaN(parseInt(process.env.PORT))
+        ? parseInt(process.env.PORT)
+        : 3001;
 
     routes(app);
 

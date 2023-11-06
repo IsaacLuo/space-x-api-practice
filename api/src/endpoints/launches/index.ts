@@ -1,1 +1,1 @@
-export {getLaunches} from "./get-launches"
+export { getLaunches } from "./get-launches";

@@ -5,7 +5,7 @@ module.exports = {
   moduleFileExtensions: ["ts", "tsx", "js", "jsx", "json"],
   roots: ["<rootDir>"],
   modulePaths: ["<rootDir>"],
-  preset:"ts-jest",
+  preset: "ts-jest",
   testEnvironment: "node",
   testPathIgnorePatterns: ["/node_modules/"],
 };

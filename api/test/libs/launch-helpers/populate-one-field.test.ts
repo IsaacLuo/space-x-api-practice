@@ -1,46 +1,42 @@
 import { populateOneField } from "../../../src/libs/launch-helpers/populate-one-field";
 import axios, { AxiosHeaders, AxiosResponse } from "axios";
-import {
-  URL_LAUNCHPADS_QUERY,
-} from "../../../src/upstream-urls";
+import { URL_LAUNCHPADS_QUERY } from "../../../src/upstream-urls";
 
 test("populate launchpadName", async () => {
   jest
     .spyOn(axios, "post")
-    .mockImplementationOnce(
-      async (): Promise<AxiosResponse<any, any>> => {
-        return {
-          data: {
-            docs: [
-              {
-                name: "CCSFS SLC 40",
-                id: "5e9e4501f509094ba4566f84",
-              },
-              {
-                name: "Kwajalein Atoll",
-                id: "5e9e4502f5090995de566f86",
-              },
-            ],
-            totalDocs: 2,
-            offset: 0,
-            limit: 10,
-            totalPages: 1,
-            page: 1,
-            pagingCounter: 1,
-            hasPrevPage: false,
-            hasNextPage: false,
-            prevPage: null,
-            nextPage: null,
-          },
-          status: 200,
-          statusText: "OK",
-          headers: {},
-          config: {
-            headers: new AxiosHeaders({ "Content-Type": "application/json" }),
-          },
-        };
-      }
-    );
+    .mockImplementationOnce(async (): Promise<AxiosResponse<any, any>> => {
+      return {
+        data: {
+          docs: [
+            {
+              name: "CCSFS SLC 40",
+              id: "5e9e4501f509094ba4566f84",
+            },
+            {
+              name: "Kwajalein Atoll",
+              id: "5e9e4502f5090995de566f86",
+            },
+          ],
+          totalDocs: 2,
+          offset: 0,
+          limit: 10,
+          totalPages: 1,
+          page: 1,
+          pagingCounter: 1,
+          hasPrevPage: false,
+          hasNextPage: false,
+          prevPage: null,
+          nextPage: null,
+        },
+        status: 200,
+        statusText: "OK",
+        headers: {},
+        config: {
+          headers: new AxiosHeaders({ "Content-Type": "application/json" }),
+        },
+      };
+    });
   const testDoc: any = {
     docs: [
       {
@@ -83,40 +79,38 @@ test("populate launchpadName", async () => {
 test("throws when id doesn't match", async () => {
   jest
     .spyOn(axios, "post")
-    .mockImplementationOnce(
-      async (): Promise<AxiosResponse<any, any>> => {
-        return {
-          data: {
-            docs: [
-              {
-                name: "CCSFS SLC 40",
-                id: "5e9d0d95eda69955f709d1eb",
-              },
-              {
-                name: "CCSFS SLC 41",
-                id: "5e9d0d95eda69955f709d1ec",
-              },
-            ],
-            totalDocs: 2,
-            offset: 0,
-            limit: 10,
-            totalPages: 1,
-            page: 1,
-            pagingCounter: 1,
-            hasPrevPage: false,
-            hasNextPage: false,
-            prevPage: null,
-            nextPage: null,
-          },
-          status: 200,
-          statusText: "OK",
-          headers: {},
-          config: {
-            headers: new AxiosHeaders({ "Content-Type": "application/json" }),
-          },
-        };
-      }
-    );
+    .mockImplementationOnce(async (): Promise<AxiosResponse<any, any>> => {
+      return {
+        data: {
+          docs: [
+            {
+              name: "CCSFS SLC 40",
+              id: "5e9d0d95eda69955f709d1eb",
+            },
+            {
+              name: "CCSFS SLC 41",
+              id: "5e9d0d95eda69955f709d1ec",
+            },
+          ],
+          totalDocs: 2,
+          offset: 0,
+          limit: 10,
+          totalPages: 1,
+          page: 1,
+          pagingCounter: 1,
+          hasPrevPage: false,
+          hasNextPage: false,
+          prevPage: null,
+          nextPage: null,
+        },
+        status: 200,
+        statusText: "OK",
+        headers: {},
+        config: {
+          headers: new AxiosHeaders({ "Content-Type": "application/json" }),
+        },
+      };
+    });
   const testDoc: any = {
     docs: [
       {
@@ -151,7 +145,8 @@ test("throws when id doesn't match", async () => {
     nextPage: 2,
   };
   expect(
-    async () => await populateOneField(testDoc, "launchpad", URL_LAUNCHPADS_QUERY)
+    async () =>
+      await populateOneField(testDoc, "launchpad", URL_LAUNCHPADS_QUERY)
   ).rejects.toThrow();
 });
 
@@ -193,7 +188,7 @@ test("throws error when network error", async () => {
     hasNextPage: true,
     prevPage: null,
     nextPage: 2,
-  };;
+  };
   expect(
     async () =>
       await populateOneField(testDoc as any, "launchpad", URL_LAUNCHPADS_QUERY)
@@ -204,7 +199,7 @@ test("throws error when axios error", async () => {
   jest
     .spyOn(axios, "post")
     .mockImplementationOnce(async (): Promise<AxiosResponse<any, any>> => {
-      throw new Error("")
+      throw new Error("");
     });
   const testDoc = {};
   expect(
@@ -248,8 +243,7 @@ test("throws error some id is invalid", async () => {
     nextPage: 2,
   };
   expect(
-    async () => await populateOneField(testDoc, "launchpad", URL_LAUNCHPADS_QUERY)
+    async () =>
+      await populateOneField(testDoc, "launchpad", URL_LAUNCHPADS_QUERY)
   ).rejects.toThrow();
 });
-
-

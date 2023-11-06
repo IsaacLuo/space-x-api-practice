@@ -1,13 +1,20 @@
-import { ApiResult, Launch, SpaceXLaunchPopulated, SpaceXQueryResult } from "../../types";
+import {
+  ApiResult,
+  Launch,
+  SpaceXLaunchPopulated,
+  SpaceXQueryResult,
+} from "../../types";
 
 /**
- * mapResult, it maps the populated result from upstreams SpaceXQueryResult<SpaceXLaunchPopulated> 
+ * mapResult, it maps the populated result from upstreams SpaceXQueryResult<SpaceXLaunchPopulated>
  * to downstream format "ApiResult"
  * @param launches the populated launches data
  * @returns converted data for downstream
  */
-export function mapResult(launches: SpaceXQueryResult<SpaceXLaunchPopulated>): ApiResult {
-  const results:Launch[] = launches.docs.map(launch=>({
+export function mapResult(
+  launches: SpaceXQueryResult<SpaceXLaunchPopulated>
+): ApiResult {
+  const results: Launch[] = launches.docs.map((launch) => ({
     id: launch.id,
     launchName: launch.name,
     rocketName: launch.rocketName!, // rocketName is assured in populateOneField()
@@ -16,5 +23,5 @@ export function mapResult(launches: SpaceXQueryResult<SpaceXLaunchPopulated>): A
     date: new Date(launch.date_utc),
     success: launch.success,
   }));
-  return {results};
+  return { results };
 }
