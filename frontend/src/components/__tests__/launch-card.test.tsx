@@ -21,6 +21,24 @@ test("loads and display launch card success", async () => {
   await screen.findByText("Success");
 });
 
+test("loads and display launch card success with null details", async () => {
+  const launchData = {
+    id: "5eb87cd9ffd86e000604b32a",
+    launchName: "FalconSat",
+    rocketName: "Falcon 1",
+    launchpadName: "Kwajalein Atoll",
+    details: null,
+    date: "2006-03-24T22:30:00.000Z",
+    success: true,
+  };
+  render(
+    <LaunchCard launchData={launchData} launchPictureSrc="/537-521x521.jpg" />
+  );
+  await screen.findByText("(no details)");
+  await screen.findByAltText("launch picture of FalconSat");
+  await screen.findByText("Success");
+});
+
 test("loads and display launch card failed", async () => {
   const launchData = {
     id: "5eb87cd9ffd86e000604b32a",
@@ -38,3 +56,4 @@ test("loads and display launch card failed", async () => {
   await screen.findByAltText("launch picture of FalconSat");
   await screen.findByText("Failed");
 });
+
