@@ -8,7 +8,7 @@ export default function LaunchList(props: {
     launchName: string;
     rocketName: string;
     launchpadName: string;
-    details: string;
+    details: string | null;
     date: string;
     success: boolean;
   }[];
@@ -33,7 +33,7 @@ export default function LaunchList(props: {
     if (launches.length === 0) {
       fetchData();
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   if (launches.length === 0) {

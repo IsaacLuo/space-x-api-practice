@@ -17,7 +17,7 @@ export default function LaunchCard(props: {
     launchName: string;
     rocketName: string;
     launchpadName: string;
-    details: string;
+    details: string | null;
     date: string;
     success: boolean;
   };
@@ -47,7 +47,7 @@ export default function LaunchCard(props: {
         <p className="launch-date text-gray-500 text-sm">
           {new Date(date).toLocaleString()}
         </p>
-        <p className="launch-description text-xs pr-8 py-3">{details}</p>
+        <p className="launch-description text-xs pr-8 py-3">{details !== null ? details : "(no details)"}</p>
         <h3 className="text-xl pt-3">Details</h3>
         <div className="text-xs">Rocket Name: {rocketName}</div>
         <div className="text-xs">Launchpad Name: {launchpadName}</div>

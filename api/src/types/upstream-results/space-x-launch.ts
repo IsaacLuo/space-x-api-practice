@@ -9,7 +9,7 @@ import { DateString, ObjectIdString } from "../renamed-types";
 export interface SpaceXLaunch {
   rocket: ObjectIdString;
   success: boolean;
-  details: string;
+  details: string | null;
   launchpad: ObjectIdString;
   name: string;
   date_utc: DateString;

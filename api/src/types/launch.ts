@@ -9,7 +9,7 @@ export type Launch = {
   launchName: string;
   rocketName: string;
   launchpadName: string;
-  details: string;
+  details: string | null;
   date: Date;
   success: boolean;
 };
